@@ -1,50 +1,50 @@
-const userService = require("../../services/UserService");
+const UserService = require("../../services/UserService");
 
 class UserController {
-    getAllUSers = async (req, res) => {
+    getAllUsers = async (req, res) => {
         try {
-            const users = await userService.getAllUSers()
-            res.json({ data: users, status: "success" })
+            const Users = await UserService.getAllUsers()
+            res.json({ data: Users, status: "success" })
         } catch (err) {
             res.status(500).json({ err: err.message })
         }
     }
     
-    createUSer = async (req, res) => {
+    createUser = async (req, res) => {
         try {
-            const user = await userService.createUSer(req.body)
-            res.json({ data: user, status: "success" })
+            const User = await UserService.createUser(req.body)
+            res.json({ data: User, status: "success" })
         } catch (err) {
             res.status(500).json({ err: err.message })
         }
     }
     
-    getUSerById = async (req, res) => {
+    getUserById = async (req, res) => {
         try {
-            const user = await userService.getUSerById(req.params.id)
-            res.json({ data: user, status: "success" })
+            const User = await UserService.getUserById(req.params.id)
+            res.json({ data: User, status: "success" })
         } catch (err) {
             res.status(500).json({ err: err.message })
         }
     }
     
-    updateUSer = async (req, res) => {
+    updateUser = async (req, res) => {
         try {
-            const user = await userService.updateUSer(req.params.id, req.body)
-            res.json({ data: user, status: "success" })
+            const User = await UserService.updateUsSer(req.params.id, req.body)
+            res.json({ data: User, status: "success" })
         } catch (err) {
             res.status(500).json({ err: err.message })
         }
     }
     
-    deleteUSer = async (req, res) => {
+    deleteUser = async (req, res) => {
         try {
-            const user = await userService.deleteUSer(req.params.id)
-            res.json({ data: user, status: "success" })
+            const User = await UserService.deleteUser(req.params.id)
+            res.json({ data: User, status: "success" })
         } catch (err) {
             res.status(500).json({ err: err.message })
         }
     }
 }
 
-module.exports = new userController()
+module.exports = new UserController()
